@@ -8,7 +8,6 @@ RUN yum -y update \
     && yum -y install nodejs
 
 COPY codigo-fonte/ /var/www/html/
-
 ENV TZ="America/Sao_Paulo"
 RUN date
 
