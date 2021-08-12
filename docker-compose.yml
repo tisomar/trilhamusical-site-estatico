@@ -1,0 +1,26 @@
+version: '2'
+services:
+  cliente:
+    container_name: trilhamusical-site
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./codigo-fonte:/var/www/html
+    image: gcr.io/linear-stock-322703/trilhamusical-site
+    ports:
+      - "80:80"
+    restart: always
+    labels:
+      kompose.service.type: LoadBalancer
+    networks:
+      trilhamusical-net:
+        ipv4_address: 35.197.112.231
+networks:
+  trilhamusical-net:
+    ipam:
+      config:
+        - subnet: 35.197.0.0/16
+          #docker-compose v3+ do not use ip_range
+          ip_range: 35.197.5.0/24
+
