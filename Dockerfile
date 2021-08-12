@@ -7,7 +7,6 @@ RUN yum -y update \
     && curl --silent --location https://rpm.nodesource.com/setup_13.x | bash - \
     && yum -y install nodejs
 
-
 COPY codigo-fonte/ /var/www/html/
 
 ENV TZ="America/Sao_Paulo"
